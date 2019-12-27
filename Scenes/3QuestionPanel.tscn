@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/back-arrow.png" type="Texture" id=1]
+[ext_resource path="res://Assets/circle.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/square.jpg" type="Texture" id=3]
+[ext_resource path="res://Assets/triangle.jpg" type="Texture" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MainPanel" type="VBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 580.0
+
+[node name="BackButton" type="TextureButton" parent="MainPanel"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 1 )
+expand = true
+
+[node name="QuestionPanel" type="PanelContainer" parent="MainPanel"]
+margin_top = 84.0
+margin_right = 984.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 980, 180 )
+
+[node name="QuestionText" type="Label" parent="MainPanel/QuestionPanel"]
+margin_left = 7.0
+margin_top = 15.0
+margin_right = 977.0
+margin_bottom = 165.0
+rect_min_size = Vector2( 970, 150 )
+text = "Question text here"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="AnswerPanel" type="HBoxContainer" parent="MainPanel"]
+margin_top = 268.0
+margin_right = 984.0
+margin_bottom = 568.0
+rect_min_size = Vector2( 984, 300 )
+size_flags_horizontal = 3
+
+[node name="AnswerButton1" type="TextureButton" parent="MainPanel/AnswerPanel"]
+margin_right = 325.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 2 )
+expand = true
+
+[node name="AnswerButton2" type="TextureButton" parent="MainPanel/AnswerPanel"]
+margin_left = 329.0
+margin_right = 654.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 3 )
+expand = true
+
+[node name="AnswerButton3" type="TextureButton" parent="MainPanel/AnswerPanel"]
+margin_left = 658.0
+margin_right = 984.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 4 )
+expand = true
