@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Buttons/EmptyButton.png" type="Texture" id=1]
-[ext_resource path="res://Assets/bgimg.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Buttons/EmptyPressed.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Buttons/EmptyHover.png" type="Texture" id=3]
+[ext_resource path="res://Assets/bgimg.jpg" type="Texture" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Fonts/Roboto-Black.ttf"
@@ -31,12 +33,14 @@ margin_bottom = 1000.0
 margin_right = 727.0
 margin_bottom = 920.0
 
-[node name="TextureButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+[node name="PlayButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
 margin_right = 727.0
 margin_bottom = 279.0
 texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/TextureButton"]
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/PlayButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -49,13 +53,15 @@ mouse_default_cursor_shape = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "IGRAJ"
 
-[node name="TextureButton2" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+[node name="OptionsButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
 margin_top = 283.0
 margin_right = 727.0
 margin_bottom = 562.0
 texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/TextureButton2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/OptionsButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -68,13 +74,15 @@ mouse_default_cursor_shape = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "POSTAVKE"
 
-[node name="TextureButton3" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+[node name="ExitButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
 margin_top = 566.0
 margin_right = 727.0
 margin_bottom = 845.0
 texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/TextureButton3"]
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/ExitButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -87,10 +95,10 @@ mouse_default_cursor_shape = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "IZAĐI"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="HBoxContainer"]
+[node name="Background" type="CanvasLayer" parent="HBoxContainer"]
 layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/CanvasLayer"]
+[node name="BackgroundTexture" type="TextureRect" parent="HBoxContainer/Background"]
 margin_right = 1920.0
 margin_bottom = 1080.0
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
