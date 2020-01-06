@@ -77,3 +77,4 @@ expand = true
 
 [node name="DBNode" type="Node" parent="."]
 script = ExtResource( 5 )
+[connection signal="pressed" from="MainPanel/BackButton" to="DBNode" method="_on_BackButton_pressed"]
