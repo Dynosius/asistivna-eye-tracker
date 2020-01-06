@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asistivna - Eye Tracker", "Asistivna - Eye Tracker.csproj", "{D45870A7-D287-4AD2-B53B-9E6C65AA2E52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	Release|Any CPU = Release|Any CPU
+	Tools|Any CPU = Tools|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D45870A7-D287-4AD2-B53B-9E6C65AA2E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D45870A7-D287-4AD2-B53B-9E6C65AA2E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D45870A7-D287-4AD2-B53B-9E6C65AA2E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D45870A7-D287-4AD2-B53B-9E6C65AA2E52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D45870A7-D287-4AD2-B53B-9E6C65AA2E52}.Tools|Any CPU.ActiveCfg = Tools|Any CPU
+		{D45870A7-D287-4AD2-B53B-9E6C65AA2E52}.Tools|Any CPU.Build.0 = Tools|Any CPU
+	EndGlobalSection
+EndGlobal

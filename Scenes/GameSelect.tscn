@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/bgimg.jpg" type="Texture" id=1]
+[ext_resource path="res://Assets/Buttons/SmallEmptyButton.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Buttons/EmptyPressed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Buttons/EmptyHover.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/ThreeAnswerButton.cs" type="Script" id=5]
+[ext_resource path="res://Assets/back-arrow.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/BackToMainMenu.cs" type="Script" id=7]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+
+[node name="BackgroundTexture" type="TextureRect" parent="BackgroundLayer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="BackgroundLayer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BackgroundLayer/MarginContainer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 200
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackgroundLayer/MarginContainer/HBoxContainer"]
+margin_left = 360.0
+margin_right = 860.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 500, 0 )
+custom_constants/separation = 200
+alignment = 1
+
+[node name="ThreeAnswerButton" type="TextureButton" parent="BackgroundLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 140.0
+margin_right = 500.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 500, 300 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+expand = true
+script = ExtResource( 5 )
+
+[node name="FiveAnswerButton" type="TextureButton" parent="BackgroundLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 640.0
+margin_right = 500.0
+margin_bottom = 940.0
+rect_min_size = Vector2( 500, 300 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="BackgroundLayer/MarginContainer/HBoxContainer"]
+margin_left = 1060.0
+margin_right = 1560.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 500, 0 )
+custom_constants/separation = 200
+alignment = 1
+
+[node name="FourAnswerButton" type="TextureButton" parent="BackgroundLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 140.0
+margin_right = 500.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 500, 300 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="SixAnswerButton" type="TextureButton" parent="BackgroundLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 640.0
+margin_right = 500.0
+margin_bottom = 940.0
+rect_min_size = Vector2( 500, 300 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="BackButton" type="TextureButton" parent="BackgroundLayer"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 7 )
