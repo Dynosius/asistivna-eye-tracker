@@ -1,7 +1,10 @@
 extends Node
+#################################
+#	 Constants and variables 	#
+#################################
 
 const SQLite = preload("res://lib/gdsqlite.gdns");
-
+const numberOfAnswers = 3;
 var db;
 var questions = [];
 var answerButtons = [];
@@ -10,12 +13,18 @@ var currentQuestion = 0;
 
 func _ready():
 	db = SQLite.new();
+	var answerPanel = fetchNode("MainPanel/AnswerPanel");
+	answerButtons = answerPanel.get_children();
 	# Try to open database file
 	if (not db.open("res://godotEyetrackerDb.db")):
 		print("Could not open database");
 		return;
 	fetchAllQuestions();
-	parseSQLData();
+	randomizeButtons();
+
+#########################
+#	 Utility methods 	#
+#########################
 
 func fetchAllQuestions():
 	# Select all questions in random order
@@ -28,18 +37,29 @@ func fetchAllQuestions():
 		var item = {
 			'id': res['id'],
 			'questionText': res['questionText']	,
+			'image': res['image'],
+			'color': res['color'],
+			'shape': res['shape']
+		}
+		questions.append(item)
+
+func fetchIncorrectAnswers():
+	var currentShape = questions[currentQuestion].shape
+	var currentColor = questions[currentQuestion].color
+	var answerArray = []
+	
+	var query = "SELECT * FROM V_ANSWERS WHERE color != '" + currentColor + "' AND shape != '" + currentShape + "' ORDER BY RANDOM() LIMIT " + str(numberOfAnswers - 1);
+	var result = db.fetch_array(query);
+	
+	for res in result: 
+		var item = {
+			'id': res['id'],
+			'color': res['color'],
+			'shape': res['shape'],
 			'image': res['image']
 		}
-		questions.append(item);
-	
-# For separation of logic from ready view. Method parses sql and sets button images and question text
-func parseSQLData():
-	var answerPanel = fetchNode("MainPanel/AnswerPanel");
-	answerButtons = answerPanel.get_children();
-	var texture = questions[currentQuestion].image
-	questionText.text = questions[currentQuestion].questionText
-	# Set middle button's texture
-	setItemTexture(answerButtons[1], texture);
+		answerArray.append(item);
+	return answerArray;
 
 # Set passed poolByteArray as text and attempt to put it as a texture_normal of the passed item
 func setItemTexture(item, poolByteArray):
@@ -50,12 +70,23 @@ func setItemTexture(item, poolByteArray):
 	
 	item.texture_normal = itex;
 	
-# Cycle questions TODO: REPLACE LOGIC WITH SOMETHING MORE RANDOM
 func _on_BackButton_pressed():
+	randomizeButtons();
+
+func randomizeButtons():
+	var answers = []
+	#Placeholder, 0 is correct answer at the moment
 	currentQuestion = currentQuestion % (questions.size() - 1) + 1
-	var texture = questions[currentQuestion].image
-	setItemTexture(answerButtons[1], texture)
 	questionText.text = questions[currentQuestion].questionText
+	answers.append(questions[currentQuestion]);
+	
+	var tempArray = fetchIncorrectAnswers();
+	for temp in tempArray:
+		answers.append(temp)
+	
+	for i in range(answers.size()):
+		var texture = answers[i].image;
+		setItemTexture(answerButtons[i], texture);
 
 # Fetch node from given path
 func fetchNode(path):
