@@ -4,22 +4,30 @@ extends Node
 #################################
 
 const SQLite = preload("res://lib/gdsqlite.gdns");
-const numberOfAnswers = 3;
+var numberOfAnswers;
 var db;
 var questions = [];
 var answerButtons = [];
 onready var questionText = fetchNode("MainPanel/QuestionPanel/QuestionText");
 var currentQuestion = 0;
 
+#################################
+#	 Signal handler methods 	#
+#################################
+
 func _ready():
 	db = SQLite.new();
 	var answerPanel = fetchNode("MainPanel/AnswerPanel");
 	answerButtons = answerPanel.get_children();
+	numberOfAnswers = answerButtons.size();
 	# Try to open database file
 	if (not db.open("res://godotEyetrackerDb.db")):
 		print("Could not open database");
 		return;
 	fetchAllQuestions();
+	randomizeButtons();
+	
+func _on_BackButton_pressed():
 	randomizeButtons();
 
 #########################
@@ -69,14 +77,10 @@ func setItemTexture(item, poolByteArray):
 	itex.create_from_image(img);
 	
 	item.texture_normal = itex;
-	
-func _on_BackButton_pressed():
-	randomizeButtons();
 
 func randomizeButtons():
 	var answers = []
-	#Placeholder, 0 is correct answer at the moment
-	currentQuestion = currentQuestion % (questions.size() - 1) + 1
+		
 	questionText.text = questions[currentQuestion].questionText
 	answers.append(questions[currentQuestion]);
 	
@@ -84,9 +88,17 @@ func randomizeButtons():
 	for temp in tempArray:
 		answers.append(temp)
 	
+	# Shuffle array for random location
+	answers.shuffle();
+	
 	for i in range(answers.size()):
 		var texture = answers[i].image;
 		setItemTexture(answerButtons[i], texture);
+	
+	# Increment question. TODO: Put this in a separate function for later use
+	currentQuestion = currentQuestion + 1;
+	if (currentQuestion == questions.size()):
+		currentQuestion = 0;
 
 # Fetch node from given path
 func fetchNode(path):
