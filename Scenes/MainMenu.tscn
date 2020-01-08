@@ -108,9 +108,7 @@ text = "IZAĐI"
 layer = -1
 
 [node name="BackgroundTexture" type="TextureRect" parent="HBoxContainer/Background"]
-margin_left = 3.25354
-margin_top = -3.25354
-margin_right = 1923.25
-margin_bottom = 1076.75
+margin_right = 1920.0
+margin_bottom = 1080.0
 texture = ExtResource( 6 )
 expand = true
