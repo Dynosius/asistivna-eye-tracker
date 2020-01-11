@@ -11,7 +11,7 @@
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Fonts/Roboto-Black.ttf"
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 resource_local_to_scene = true
 size = 100
 outline_size = 4
@@ -19,7 +19,7 @@ outline_color = Color( 0.0313726, 0.027451, 0.027451, 1 )
 use_filter = true
 font_data = SubResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 resource_local_to_scene = true
 size = 100
 outline_size = 4
@@ -69,7 +69,7 @@ margin_right = 673.0
 margin_bottom = 206.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "3 ODGOVORA"
 
 [node name="FiveAnswerButton" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -89,7 +89,7 @@ margin_right = 682.0
 margin_bottom = 204.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "5 ODGOVORA"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
@@ -117,7 +117,7 @@ margin_right = 675.0
 margin_bottom = 206.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "4 ODGOVORA"
 
 [node name="SixAnswerButton" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
@@ -137,7 +137,7 @@ margin_right = 675.0
 margin_bottom = 207.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "6 ODGOVORA"
 
 [node name="BackButton" type="TextureButton" parent="."]
