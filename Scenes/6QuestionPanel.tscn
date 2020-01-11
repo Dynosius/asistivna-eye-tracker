@@ -58,44 +58,64 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="AnswerPanel" type="HBoxContainer" parent="MainPanel"]
+[node name="AnswerPanel" type="Control" parent="MainPanel"]
 margin_top = 422.0
 margin_right = 1880.0
-margin_bottom = 892.0
-rect_min_size = Vector2( 984, 300 )
-size_flags_horizontal = 3
+margin_bottom = 422.0
 
 [node name="AnswerButton1" type="TextureButton" parent="MainPanel/AnswerPanel"]
-margin_right = 466.0
-margin_bottom = 470.0
+margin_left = 385.0
+margin_right = 685.0
+margin_bottom = 300.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 texture_normal = ExtResource( 4 )
 expand = true
 
 [node name="AnswerButton2" type="TextureButton" parent="MainPanel/AnswerPanel"]
-margin_left = 470.0
-margin_right = 936.0
-margin_bottom = 470.0
+margin_left = 385.0
+margin_top = 320.0
+margin_right = 685.0
+margin_bottom = -20.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 texture_normal = ExtResource( 4 )
 expand = true
 
 [node name="AnswerButton3" type="TextureButton" parent="MainPanel/AnswerPanel"]
-margin_left = 940.0
-margin_right = 1406.0
-margin_bottom = 470.0
+margin_left = 785.0
+margin_right = 1085.0
+margin_bottom = 300.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 texture_normal = ExtResource( 4 )
 expand = true
 
 [node name="AnswerButton4" type="TextureButton" parent="MainPanel/AnswerPanel"]
-margin_left = 1410.0
-margin_right = 1880.0
-margin_bottom = 470.0
-rect_min_size = Vector2( 470, 470 )
+margin_left = 785.0
+margin_top = 320.0
+margin_right = 1085.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="AnswerButton5" type="TextureButton" parent="MainPanel/AnswerPanel"]
+margin_left = 1185.0
+margin_right = 1485.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="AnswerButton6" type="TextureButton" parent="MainPanel/AnswerPanel"]
+margin_left = 1185.0
+margin_top = 320.0
+margin_right = 1485.0
+margin_bottom = -20.0
+rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 texture_normal = ExtResource( 4 )
 expand = true
@@ -103,7 +123,8 @@ expand = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="BackgroundTexture" type="TextureRect" parent="ParallaxBackground"]
-margin_right = 1920.0
+margin_left = -2.51758
+margin_right = 1917.48
 margin_bottom = 1080.0
 texture = ExtResource( 5 )
 expand = true
