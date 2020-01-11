@@ -103,3 +103,9 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 texture = ExtResource( 6 )
 expand = true
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+margin_left = 124.0
+margin_top = 93.0
+margin_right = 1792.0
+margin_bottom = 772.0

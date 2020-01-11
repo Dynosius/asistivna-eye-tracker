@@ -8,4 +8,5 @@ func _ready():
 	pass
 
 func _pressed():
+	controlNode.popupPanel();
 	controlNode.randomizeButtons();
