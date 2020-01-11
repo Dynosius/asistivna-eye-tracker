@@ -27,8 +27,9 @@ func _ready():
 	fetchAllQuestions();
 	randomizeButtons();
 	
-func _on_BackButton_pressed():
-	randomizeButtons();
+	# Reference this node in each buttons to issue callbacks (on click events, etc)
+	for btn in answerButtons:
+		btn.controlNode = self;
 
 #########################
 #	 Utility methods 	#
@@ -92,6 +93,10 @@ func randomizeButtons():
 	answers.shuffle();
 	
 	for i in range(answers.size()):
+		if ('questionText' in answers[i]):
+			answerButtons[i].isAnswerCorrect = true
+		else:
+			answerButtons[i].isAnswerCorrect = false;
 		var texture = answers[i].image;
 		setItemTexture(answerButtons[i], texture);
 	
