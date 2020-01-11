@@ -3,8 +3,8 @@
 [ext_resource path="res://Assets/Buttons/EmptyButton.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Buttons/EmptyPressed.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Buttons/EmptyHover.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/PlayButton.cs" type="Script" id=4]
-[ext_resource path="res://Scripts/ExitButton.cs" type="Script" id=5]
+[ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=5]
 [ext_resource path="res://Assets/bgimg.jpg" type="Texture" id=6]
 
 [sub_resource type="DynamicFontData" id=1]

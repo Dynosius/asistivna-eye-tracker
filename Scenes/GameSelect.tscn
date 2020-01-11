@@ -4,9 +4,9 @@
 [ext_resource path="res://Assets/Buttons/SmallEmptyButton.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Buttons/EmptyPressed.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Buttons/EmptyHover.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/ThreeAnswerButton.cs" type="Script" id=5]
+[ext_resource path="res://Scripts/ThreeAnswerButton.gd" type="Script" id=5]
 [ext_resource path="res://Assets/back-arrow.png" type="Texture" id=6]
-[ext_resource path="res://Scripts/BackToMainMenu.cs" type="Script" id=7]
+[ext_resource path="res://Scripts/BackButton.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Fonts/Roboto-Black.ttf"
