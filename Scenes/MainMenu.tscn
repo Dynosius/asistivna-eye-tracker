@@ -10,7 +10,7 @@
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Fonts/Roboto-Black.ttf"
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 resource_local_to_scene = true
 size = 100
 outline_size = 4
@@ -18,7 +18,7 @@ outline_color = Color( 0.0313726, 0.027451, 0.027451, 1 )
 use_filter = true
 font_data = SubResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 resource_local_to_scene = true
 size = 100
 outline_size = 4
@@ -65,7 +65,7 @@ margin_right = 151.521
 margin_bottom = 60.4845
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "IGRAJ"
 
 [node name="OptionsButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
@@ -87,7 +87,7 @@ margin_right = 320.337
 margin_bottom = 67.001
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "POSTAVKE"
 
 [node name="ExitButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
@@ -110,7 +110,7 @@ margin_right = 162.5
 margin_bottom = 70.5
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "IZAĐI"
 
 [node name="Background" type="CanvasLayer" parent="HBoxContainer"]

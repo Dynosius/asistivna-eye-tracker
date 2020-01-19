@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/DBNode.gd" type="Script" id=1]
+[ext_resource path="res://Assets/back-arrow.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/BackButton.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Buttons/SmallEmptyButton.png" type="Texture" id=4]
+[ext_resource path="res://Assets/bgimg.jpg" type="Texture" id=5]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Fonts/Roboto-Black.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+resource_local_to_scene = true
+size = 60
+outline_size = 4
+outline_color = Color( 0.0313726, 0.027451, 0.027451, 1 )
+use_filter = true
+font_data = SubResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="DBNode" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="MainPanel" type="VBoxContainer" parent="."]
+margin_left = 20.1112
+margin_top = 22.65
+margin_right = 1900.11
+margin_bottom = 1062.65
+
+[node name="BackButton" type="TextureButton" parent="MainPanel"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 2 )
+expand = true
+script = ExtResource( 3 )
+
+[node name="QuestionPanel" type="PanelContainer" parent="MainPanel"]
+margin_top = 104.0
+margin_right = 1880.0
+margin_bottom = 418.0
+rect_min_size = Vector2( 1880, 300 )
+
+[node name="QuestionText" type="Label" parent="MainPanel/QuestionPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1873.0
+margin_bottom = 307.0
+rect_min_size = Vector2( 970, 300 )
+custom_fonts/font = SubResource( 2 )
+text = "Question text here"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="AnswerPanel" type="Control" parent="MainPanel"]
+margin_top = 422.0
+margin_right = 1880.0
+margin_bottom = 422.0
+
+[node name="AnswerButton1" type="TextureButton" parent="MainPanel/AnswerPanel"]
+margin_left = 435.0
+margin_right = 735.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="AnswerButton2" type="TextureButton" parent="MainPanel/AnswerPanel"]
+margin_left = 435.0
+margin_top = 320.0
+margin_right = 735.0
+margin_bottom = -20.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="AnswerButton3" type="TextureButton" parent="MainPanel/AnswerPanel"]
+margin_left = 785.0
+margin_top = 150.0
+margin_right = 1085.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="AnswerButton4" type="TextureButton" parent="MainPanel/AnswerPanel"]
+margin_left = 1135.0
+margin_right = 1435.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="AnswerButton5" type="TextureButton" parent="MainPanel/AnswerPanel"]
+margin_left = 1135.0
+margin_top = 320.0
+margin_right = 1435.0
+margin_bottom = -20.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="BackgroundTexture" type="TextureRect" parent="ParallaxBackground"]
+margin_left = -2.51758
+margin_right = 1917.48
+margin_bottom = 1080.0
+texture = ExtResource( 5 )
+expand = true
