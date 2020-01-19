@@ -116,23 +116,24 @@ texture = ExtResource( 6 )
 expand = true
 
 [node name="CorrectPanel" type="PopupPanel" parent="."]
+editor/display_folded = true
 margin_left = 124.0
 margin_top = 93.0
 margin_right = 1792.0
 margin_bottom = 772.0
 
 [node name="Smiley" type="TextureRect" parent="CorrectPanel"]
-margin_left = -1.23743
-margin_top = 0.153381
-margin_right = 908.763
-margin_bottom = 828.153
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 1664.0
+margin_bottom = 832.0
 texture = ExtResource( 7 )
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CorrectPanel"]
-margin_left = 1160.92
-margin_top = 419.4
-margin_right = 1630.92
-margin_bottom = 561.4
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 1664.0
+margin_bottom = 832.0
 custom_fonts/mono_font = SubResource( 4 )
 custom_fonts/bold_italics_font = SubResource( 4 )
 custom_fonts/italics_font = SubResource( 4 )
@@ -141,16 +142,17 @@ custom_fonts/normal_font = SubResource( 4 )
 text = "Bravo!"
 
 [node name="IncorrectPanel" type="PopupPanel" parent="."]
+editor/display_folded = true
 margin_left = 124.0
 margin_top = 93.0
 margin_right = 1792.0
 margin_bottom = 772.0
 
 [node name="Smiley" type="TextureRect" parent="IncorrectPanel"]
-margin_left = 200.776
-margin_top = 79.8955
-margin_right = 712.776
-margin_bottom = 591.896
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 1664.0
+margin_bottom = 675.0
 texture = ExtResource( 8 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="IncorrectPanel/Smiley"]

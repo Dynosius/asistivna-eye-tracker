@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/DBNode.gd" type="Script" id=1]
 [ext_resource path="res://Assets/back-arrow.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/BackButton.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Buttons/SmallEmptyButton.png" type="Texture" id=4]
-[ext_resource path="res://Assets/bgimg.jpg" type="Texture" id=5]
+[ext_resource path="res://Scripts/AnswerButton.gd" type="Script" id=5]
+[ext_resource path="res://Assets/bgimg.jpg" type="Texture" id=6]
+[ext_resource path="res://Assets/Sounds/Tocno.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Sounds/Krivo.wav" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Fonts/Roboto-Black.ttf"
@@ -72,6 +75,7 @@ rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 texture_normal = ExtResource( 4 )
 expand = true
+script = ExtResource( 5 )
 
 [node name="AnswerButton2" type="TextureButton" parent="MainPanel/AnswerPanel"]
 margin_left = 470.0
@@ -81,6 +85,7 @@ rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 texture_normal = ExtResource( 4 )
 expand = true
+script = ExtResource( 5 )
 
 [node name="AnswerButton3" type="TextureButton" parent="MainPanel/AnswerPanel"]
 margin_left = 940.0
@@ -90,6 +95,7 @@ rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 texture_normal = ExtResource( 4 )
 expand = true
+script = ExtResource( 5 )
 
 [node name="AnswerButton4" type="TextureButton" parent="MainPanel/AnswerPanel"]
 margin_left = 1410.0
@@ -99,11 +105,32 @@ rect_min_size = Vector2( 470, 470 )
 size_flags_horizontal = 3
 texture_normal = ExtResource( 4 )
 expand = true
+script = ExtResource( 5 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="BackgroundTexture" type="TextureRect" parent="ParallaxBackground"]
 margin_right = 1920.0
 margin_bottom = 1080.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 expand = true
+
+[node name="CorrectPanel" type="PopupPanel" parent="."]
+margin_left = 172.0
+margin_top = 105.0
+margin_right = 1799.0
+margin_bottom = 735.0
+
+[node name="IncorrectPanel" type="PopupPanel" parent="."]
+margin_left = 172.0
+margin_top = 105.0
+margin_right = 1799.0
+margin_bottom = 735.0
+
+[node name="CorrectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -20.0
+
+[node name="IncorrectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -20.0
