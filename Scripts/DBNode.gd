@@ -4,12 +4,23 @@ extends Node
 #################################
 
 const SQLite = preload("res://lib/gdsqlite.gdns");
+const TextureScript = preload("res://Scripts/TextureScript.gd");
+onready var questionText = fetchNode("MainPanel/QuestionPanel/QuestionText");
+onready var correctPanel = fetchNode("CorrectPanel");
+onready var incorrectPanel = fetchNode("IncorrectPanel");
+onready var correctPlayer = fetchNode("CorrectSound");
+onready var incorrectPlayer = fetchNode("IncorrectSound");
+onready var textureManager = TextureScript.new();
+
+var timer;
+var timeout = 1;
+var currentQuestion = 0;
 var numberOfAnswers;
 var db;
 var questions = [];
 var answerButtons = [];
-onready var questionText = fetchNode("MainPanel/QuestionPanel/QuestionText");
-var currentQuestion = 0;
+var popupPanel;
+
 
 #################################
 #	 Signal handler methods 	#
@@ -17,6 +28,10 @@ var currentQuestion = 0;
 
 func _ready():
 	db = SQLite.new();
+	timer = Timer.new();
+	timer.connect("timeout", self, "_on_timer_timeout");
+	add_child(timer);
+	timer.set_wait_time(timeout);
 	var answerPanel = fetchNode("MainPanel/AnswerPanel");
 	answerButtons = answerPanel.get_children();
 	numberOfAnswers = answerButtons.size();
@@ -27,8 +42,9 @@ func _ready():
 	fetchAllQuestions();
 	randomizeButtons();
 	
-func _on_BackButton_pressed():
-	randomizeButtons();
+	# Reference this node in each buttons to issue callbacks (on click events, etc)
+	for btn in answerButtons:
+		btn.controlNode = self;
 
 #########################
 #	 Utility methods 	#
@@ -49,7 +65,7 @@ func fetchAllQuestions():
 			'color': res['color'],
 			'shape': res['shape']
 		}
-		questions.append(item)
+		questions.append(item);
 
 func fetchIncorrectAnswers():
 	var currentShape = questions[currentQuestion].shape
@@ -79,19 +95,23 @@ func setItemTexture(item, poolByteArray):
 	item.texture_normal = itex;
 
 func randomizeButtons():
-	var answers = []
+	var answers = [];
 		
-	questionText.text = questions[currentQuestion].questionText
+	questionText.text = questions[currentQuestion].questionText;
 	answers.append(questions[currentQuestion]);
 	
 	var tempArray = fetchIncorrectAnswers();
 	for temp in tempArray:
-		answers.append(temp)
+		answers.append(temp);
 	
 	# Shuffle array for random location
 	answers.shuffle();
 	
 	for i in range(answers.size()):
+		if ('questionText' in answers[i]):
+			answerButtons[i].isAnswerCorrect = true;
+		else:
+			answerButtons[i].isAnswerCorrect = false;
 		var texture = answers[i].image;
 		setItemTexture(answerButtons[i], texture);
 	
@@ -99,6 +119,25 @@ func randomizeButtons():
 	currentQuestion = currentQuestion + 1;
 	if (currentQuestion == questions.size()):
 		currentQuestion = 0;
+
+func popupPanel(isCorrect):
+	timer.start();
+	if(isCorrect):
+		popupPanel = correctPanel;
+	else:
+		popupPanel = incorrectPanel;
+	popupPanel.popup();
+
+func _on_timer_timeout():
+	timer.stop();
+	popupPanel.hide();
+	randomizeButtons();
+	
+func playSound(isCorrect):
+	if (isCorrect):
+		correctPlayer.play();
+	else:
+		incorrectPlayer.play();
 
 # Fetch node from given path
 func fetchNode(path):
