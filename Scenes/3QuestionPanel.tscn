@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/DBNode.gd" type="Script" id=1]
 [ext_resource path="res://Assets/back-arrow.png" type="Texture" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://Assets/Buttons/SmallEmptyButton.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/AnswerButton.gd" type="Script" id=5]
 [ext_resource path="res://Assets/bgimg.jpg" type="Texture" id=6]
+[ext_resource path="res://Assets/Images/bravo1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Images/thinking2.jpg" type="Texture" id=8]
+[ext_resource path="res://Assets/Sounds/Tocno.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sounds/Krivo.wav" type="AudioStream" id=10]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Fonts/Roboto-Black.ttf"
@@ -17,6 +21,13 @@ outline_size = 4
 outline_color = Color( 0.0313726, 0.027451, 0.027451, 1 )
 use_filter = true
 font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Assets/Fonts/RobotoCondensed-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 70
+font_data = SubResource( 3 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -104,8 +115,60 @@ margin_bottom = 1080.0
 texture = ExtResource( 6 )
 expand = true
 
-[node name="PopupPanel" type="PopupPanel" parent="."]
+[node name="CorrectPanel" type="PopupPanel" parent="."]
 margin_left = 124.0
 margin_top = 93.0
 margin_right = 1792.0
 margin_bottom = 772.0
+
+[node name="Smiley" type="TextureRect" parent="CorrectPanel"]
+margin_left = -1.23743
+margin_top = 0.153381
+margin_right = 908.763
+margin_bottom = 828.153
+texture = ExtResource( 7 )
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CorrectPanel"]
+margin_left = 1160.92
+margin_top = 419.4
+margin_right = 1630.92
+margin_bottom = 561.4
+custom_fonts/mono_font = SubResource( 4 )
+custom_fonts/bold_italics_font = SubResource( 4 )
+custom_fonts/italics_font = SubResource( 4 )
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 4 )
+text = "Bravo!"
+
+[node name="IncorrectPanel" type="PopupPanel" parent="."]
+margin_left = 124.0
+margin_top = 93.0
+margin_right = 1792.0
+margin_bottom = 772.0
+
+[node name="Smiley" type="TextureRect" parent="IncorrectPanel"]
+margin_left = 200.776
+margin_top = 79.8955
+margin_right = 712.776
+margin_bottom = 591.896
+texture = ExtResource( 8 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="IncorrectPanel/Smiley"]
+margin_left = 791.832
+margin_top = 184.96
+margin_right = 1314.83
+margin_bottom = 285.96
+custom_fonts/mono_font = SubResource( 4 )
+custom_fonts/bold_italics_font = SubResource( 4 )
+custom_fonts/italics_font = SubResource( 4 )
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 4 )
+text = "Pokušaj ponovo"
+
+[node name="CorrectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -20.0
+
+[node name="IncorrectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -20.0

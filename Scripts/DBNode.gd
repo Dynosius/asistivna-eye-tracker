@@ -4,15 +4,23 @@ extends Node
 #################################
 
 const SQLite = preload("res://lib/gdsqlite.gdns");
+const TextureScript = preload("res://Scripts/TextureScript.gd");
+onready var questionText = fetchNode("MainPanel/QuestionPanel/QuestionText");
+onready var correctPanel = fetchNode("CorrectPanel");
+onready var incorrectPanel = fetchNode("IncorrectPanel");
+onready var correctPlayer = fetchNode("CorrectSound");
+onready var incorrectPlayer = fetchNode("IncorrectSound");
+onready var textureManager = TextureScript.new();
+
+var timer;
+var timeout = 1;
+var currentQuestion = 0;
 var numberOfAnswers;
 var db;
 var questions = [];
 var answerButtons = [];
-onready var questionText = fetchNode("MainPanel/QuestionPanel/QuestionText");
-onready var popupPanel = fetchNode("PopupPanel");
-var timer;
-var timeout = 1;
-var currentQuestion = 0;
+var popupPanel;
+
 
 #################################
 #	 Signal handler methods 	#
@@ -112,13 +120,25 @@ func randomizeButtons():
 	if (currentQuestion == questions.size()):
 		currentQuestion = 0;
 
-func popupPanel():
+func popupPanel(isCorrect):
 	timer.start();
+	if(isCorrect):
+		popupPanel = correctPanel;
+	else:
+		popupPanel = incorrectPanel;
 	popupPanel.popup();
 
 func _on_timer_timeout():
+	timer.stop();
 	popupPanel.hide();
+	randomizeButtons();
 	
+func playSound(isCorrect):
+	if (isCorrect):
+		correctPlayer.play();
+	else:
+		incorrectPlayer.play();
+
 # Fetch node from given path
 func fetchNode(path):
 	return get_parent().get_node(path)
