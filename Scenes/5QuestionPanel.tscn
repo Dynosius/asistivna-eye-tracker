@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/DBNode.gd" type="Script" id=1]
 [ext_resource path="res://Assets/back-arrow.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Assets/bgimg.jpg" type="Texture" id=6]
 [ext_resource path="res://Assets/Sounds/Tocno.wav" type="AudioStream" id=7]
 [ext_resource path="res://Assets/Sounds/Krivo.wav" type="AudioStream" id=8]
+[ext_resource path="res://Scenes/CorrectPanel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/IncorrectPanel.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Fonts/Roboto-Black.ttf"
@@ -128,18 +130,6 @@ margin_bottom = 1080.0
 texture = ExtResource( 6 )
 expand = true
 
-[node name="CorrectPanel" type="PopupPanel" parent="."]
-margin_left = 202.0
-margin_top = 189.0
-margin_right = 1737.0
-margin_bottom = 719.0
-
-[node name="IncorrectPanel" type="PopupPanel" parent="."]
-margin_left = 202.0
-margin_top = 189.0
-margin_right = 1737.0
-margin_bottom = 719.0
-
 [node name="CorrectSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -20.0
@@ -147,3 +137,8 @@ volume_db = -20.0
 [node name="IncorrectSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -20.0
+
+[node name="CorrectPanel" parent="." instance=ExtResource( 9 )]
+
+[node name="IncorrectPanel" parent="." instance=ExtResource( 10 )]
+visible = false
