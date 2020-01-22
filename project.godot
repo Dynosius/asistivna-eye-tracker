@@ -19,6 +19,10 @@ config/name="Asistivna - Eye Tracker"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+VolumeScript="*res://Scripts/VolumeScript.gd"
+
 [display]
 
 window/size/width=1920
