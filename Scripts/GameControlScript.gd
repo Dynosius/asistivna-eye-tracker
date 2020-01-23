@@ -68,7 +68,7 @@ func fetchIncorrectAnswers():
 	var currentColor = questions[currentQuestion].color
 	var answerArray = []
 	
-	var query = "SELECT * FROM V_ANSWERS WHERE color != '" + currentColor + "' AND shape != '" + currentShape + "' ORDER BY RANDOM() LIMIT " + str(numberOfAnswers - 1);
+	var query = "SELECT * FROM V_ANSWERS WHERE shape != '" + currentShape + "' ORDER BY RANDOM() LIMIT " + str(numberOfAnswers - 1);
 	var result = db.fetch_array(query);
 	
 	for res in result: 
