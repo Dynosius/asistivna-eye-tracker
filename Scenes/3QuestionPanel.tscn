@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Scripts/DBNode.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/GameControlScript.gd" type="Script" id=1]
 [ext_resource path="res://Assets/back-arrow.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/BackButton.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Buttons/SmallEmptyButton.png" type="Texture" id=4]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Sounds/Tocno.wav" type="AudioStream" id=9]
 [ext_resource path="res://Scripts/SoundScript.gd" type="Script" id=10]
 [ext_resource path="res://Assets/Sounds/Krivo.wav" type="AudioStream" id=11]
+
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Fonts/Roboto-Black.ttf"

@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 VolumeScript="*res://Scripts/VolumeScript.gd"
+DBNode="*res://Scripts/DBNode.gd"
 
 [display]
 
